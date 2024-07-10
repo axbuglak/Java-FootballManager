@@ -9,7 +9,8 @@ public interface Field {
   HashSet<Integer> playersOnBanch = new HashSet<Integer>();
   HashMap<Integer, Integer[]> positions = new HashMap<Integer, Integer[]>();
 
-  HashMap<Integer, Integer[]> getPositions();
+  HashMap<Integer, Integer[]> getPositionsFirst();
+  HashMap<Integer, Integer[]> getPositionsSecond();
 
   Boolean removePlayerFromGame(int playerNumber);
 
@@ -19,6 +20,7 @@ public interface Field {
 
   String getName();
 
-  void addPosition(int positionNumber, int x, int y);
+  void addPositionFirstTeam(int positionNumber, int x, int y);
+  void addPositionSecondTeam(int positionNumber, int x, int y);
 
 }

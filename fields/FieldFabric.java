@@ -7,15 +7,21 @@ public class FieldFabric implements Field {
   private String name;
   private HashMap<Integer, Integer> playersInGame = new HashMap<Integer, Integer>(); // playerint || position
   private HashSet<Integer> playersOnBanch  = new HashSet<Integer>();
-  private HashMap<Integer, Integer[]> positions = new HashMap<Integer, Integer[]>();
+  private HashMap<Integer, Integer[]> positionsFirst = new HashMap<Integer, Integer[]>();
+  private HashMap<Integer, Integer[]> positionsSecond = new HashMap<Integer, Integer[]>();
 
   public FieldFabric(String name) {
    this.name = name;
   }
 
-  public void addPosition(int positionNumber, int x, int y) {
+  public void addPositionFirstTeam(int positionNumber, int x, int y) {
     Integer[] graphPosition = { x, y };
-    positions.put(positionNumber, graphPosition);
+    positionsFirst.put(positionNumber, graphPosition);
+  }
+
+  public void addPositionSecondTeam(int positionNumber, int x, int y) {
+    Integer[] graphPosition = { x, y };
+    positionsSecond.put(positionNumber, graphPosition);
   }
 
   public String getName() {
@@ -44,7 +50,11 @@ public class FieldFabric implements Field {
     return this.playersOnBanch.add(playerNumber);
   }
 
-  public HashMap<Integer, Integer[]> getPositions() {
-    return positions;
+  public HashMap<Integer, Integer[]> getPositionsFirst() {
+    return positionsFirst;
   }
+  public HashMap<Integer, Integer[]> getPositionsSecond() {
+    return positionsSecond;
+  }
+
 }
