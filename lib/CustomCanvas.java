@@ -89,11 +89,11 @@ public class CustomCanvas extends Canvas {
       Player oldPositionPlayer = team.searchPlayer(position.getPlayer());
       if (oldPositionPlayer != null) {
         oldPositionPlayer.resetPosition();
-        field.removePlayerFromGame(player.getNumber());
+        field.removePlayerFromGame(player);
       }
     }
     player.setTeam(position.team);
-    field.setPlayerInGame(player.getNumber(), position.key);
+    field.setPlayerInGame(player, position.key);
     position.setPlayer(player.getName());
     System.out.println(position.player);
     repaint();
@@ -118,6 +118,5 @@ public class CustomCanvas extends Canvas {
       g.drawString(player.getName() + " " + player.getNumber(), player.position.x, player.position.y);
     }
 
-    g.drawString("Play", 180, 20);
   }
 }

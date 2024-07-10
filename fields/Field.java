@@ -3,6 +3,8 @@ package fields;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import lib.Player;
+
 public interface Field {
   String name = "";
   HashMap<Integer, Integer> playersInGame = new HashMap<Integer, Integer>(); // playerint || position
@@ -12,15 +14,16 @@ public interface Field {
   HashMap<Integer, Integer[]> getPositionsFirst();
   HashMap<Integer, Integer[]> getPositionsSecond();
 
-  Boolean removePlayerFromGame(int playerNumber);
+  Boolean removePlayerFromGame(Player player);
 
-  void setPlayerInGame(int playerNumber, int position);
+  void setPlayerInGame(Player player, int position);
 
-  void addPlayer(int playerNumber);
+  void addPlayer(Player player);
 
   String getName();
 
   void addPositionFirstTeam(int positionNumber, int x, int y);
   void addPositionSecondTeam(int positionNumber, int x, int y);
+  String getResults();
 
 }

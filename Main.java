@@ -1,8 +1,13 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import fields.StandartField;
 import lib.*;
@@ -17,10 +22,21 @@ public class Main {
     try {
       frame = new JFrame("Football game");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setLayout(new BorderLayout());
       BufferedImage backgroundImage = ImageIO.read(new File("./footballPitch2.jpg"));
       CustomCanvas canvas = new CustomCanvas(backgroundImage, field, team);
-      frame.add(canvas);
-      frame.setSize(backgroundImage.getWidth(), backgroundImage.getHeight());
+      JLabel label = new JLabel("Choose your teams");
+      JButton button = new JButton("Click Me");
+      button.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          label.setText(field.getResults());
+        }
+      });
+      frame.add(button, BorderLayout.SOUTH);
+      frame.add(canvas, BorderLayout.CENTER);
+      frame.add(label, BorderLayout.NORTH);
+      frame.setSize(backgroundImage.getWidth(), backgroundImage.getHeight() + 50);
       frame.setVisible(true);
     } catch (IOException e) {
       e.printStackTrace();

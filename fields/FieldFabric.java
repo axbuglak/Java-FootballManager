@@ -3,10 +3,12 @@ package fields;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import lib.Player;
+
 public class FieldFabric implements Field {
   private String name;
-  private HashMap<Integer, Integer> playersInGame = new HashMap<Integer, Integer>(); // playerint || position
-  private HashSet<Integer> playersOnBanch  = new HashSet<Integer>();
+  private HashMap<Player, Integer> playersInGame = new HashMap<Player, Integer>(); // playerint || position
+  private HashSet<Player> playersOnBanch  = new HashSet<Player>();
   private HashMap<Integer, Integer[]> positionsFirst = new HashMap<Integer, Integer[]>();
   private HashMap<Integer, Integer[]> positionsSecond = new HashMap<Integer, Integer[]>();
 
@@ -28,26 +30,26 @@ public class FieldFabric implements Field {
     return name;
   }
   
-  public void addPlayer(int playerNumber) {
+  public void addPlayer(Player player) {
     if(this.playersOnBanch.size() >= 11) return;
-    this.playersOnBanch.add(playerNumber);
+    this.playersOnBanch.add(player);
   }
 
-  public void setPlayerInGame(int playerNumber, int position) {
+  public void setPlayerInGame(Player player, int position) {
     if(this.playersOnBanch.size() < 11) return;
-    boolean exists = this.playersOnBanch.contains(playerNumber) || this.playersInGame.containsKey(playerNumber);
+    boolean exists = this.playersOnBanch.contains(player) || this.playersInGame.containsKey(player);
     if(!exists) return;
-    this.playersInGame.remove(playerNumber);
-    this.playersInGame.forEach((player, playerPosition) -> {
-      if(playerPosition == position) this.playersInGame.remove(player);
-    });
-    playersInGame.put(playerNumber, position);
+    this.playersInGame.remove(player);
+    // this.playersInGame.forEach((player, playerPosition) -> {
+    //   if(playerPosition == position) this.playersInGame.remove(player);
+    // });
+    playersInGame.put(player, position);
   }
 
-  public Boolean removePlayerFromGame(int playerNumber) {
-    Integer existsAndRemoved = this.playersInGame.remove(playerNumber); 
+  public Boolean removePlayerFromGame(Player player) {
+    Integer existsAndRemoved = this.playersInGame.remove(player); 
     if(existsAndRemoved == null) return false;
-    return this.playersOnBanch.add(playerNumber);
+    return this.playersOnBanch.add(player);
   }
 
   public HashMap<Integer, Integer[]> getPositionsFirst() {
@@ -57,4 +59,7 @@ public class FieldFabric implements Field {
     return positionsSecond;
   }
 
+  public String getResults() {
+    return "Commands are not full enough";
+  }
 }
