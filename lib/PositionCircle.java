@@ -2,18 +2,17 @@ package lib;
 
 import java.awt.Point;
 
-class PositionCircle {
-  int key;
-  int x, y, radius;
-  String team;
-  String player = "";
+public class PositionCircle {
+  int key, x, y, radius;
+  String team, player = "", role;
 
-  PositionCircle(int key, int x, int y, int radius, String team) {
+  public PositionCircle(int key, int x, int y, int radius, String team, String role) {
     this.key = key;
     this.x = x;
     this.y = y;
     this.radius = radius;
     this.team = team;
+    this.role = role;
   }
 
   boolean contains(Point p) {
@@ -28,4 +27,11 @@ class PositionCircle {
     return player;
   }
 
+  public String getRole() {
+    return role;
+  }
+
+  public String getTeam() {
+    return team;
+  }
 }

@@ -4,41 +4,40 @@ public class StandartField extends FieldFabric {
 
   public StandartField() {
     super("Standart field");
-    this.addPositionFirstTeam(1, 320, 50); // Center of the goal area
+    this.addPosition(1, 320, 50, "first", "goalkeeper"); // Center of the goal area
 
     // Defenders (3 defenders)
-    this.addPositionFirstTeam(2, 200, 180); // Left defender
-    this.addPositionFirstTeam(3, 320, 180); // Center defender
-    this.addPositionFirstTeam(4, 440, 180); // Right defender
+    this.addPosition(2, 200, 180, "first", "left-defender"); // Left defender
+    this.addPosition(3, 320, 180, "first", "center-defender"); // Center defender
+    this.addPosition(4, 440, 180, "first", "right-defender"); // Right defender
 
     // Midfielders (5 midfielders)
-    this.addPositionFirstTeam(5, 160, 320); // Left midfielder
-    this.addPositionFirstTeam(6, 240, 320); // Left center midfielder
-    this.addPositionFirstTeam(7, 320, 320); // Center midfielder
-    this.addPositionFirstTeam(8, 400, 320); // Right center midfielder
-    this.addPositionFirstTeam(9, 480, 320); // Right midfielder
+    this.addPosition(5, 160, 320, "first", "left-midfielder"); // Left midfielder
+    this.addPosition(6, 240, 320, "first", "central-midfielder"); // Left center midfielder
+    this.addPosition(7, 320, 320, "first", "center-back"); // Center midfielder
+    this.addPosition(8, 400, 320, "first", "central-midfielder"); // Right center midfielder
+    this.addPosition(9, 480, 320, "first", "right-midfielder"); // Right midfielder
 
     // Forwards (2 forwards)
-    this.addPositionFirstTeam(10, 240, 430); // Left forward
-    this.addPositionFirstTeam(11, 400, 430); // Right forward
+    this.addPosition(10, 240, 430, "first", "left-forward"); // Left forward
+    this.addPosition(11, 400, 430, "first", "right-forward"); // Right forward
 
-    this.addPositionSecondTeam(1, 320, 887); // Center of the goal area (reversed)
 
+    this.addPosition(1, 320, 887, "second", "goalkeeper"); // Center of the goal area (reversed)
     // Defenders (3 defenders)
-    this.addPositionSecondTeam(2, 440, 757); // Right defender (reversed)
-    this.addPositionSecondTeam(3, 320, 757); // Center defender (reversed)
-    this.addPositionSecondTeam(4, 200, 757); // Left defender (reversed)
+    this.addPosition(2, 440, 757, "second", "right-defender"); // Right defender (reversed)
+    this.addPosition(3, 320, 757, "second", "center-defender"); // Center defender (reversed)
+    this.addPosition(4, 200, 757, "second", "left-defender"); // Left defender (reversed)
 
     // Midfielders (5 midfielders)
-    this.addPositionSecondTeam(5, 480, 617); // Right midfielder (reversed)
-    this.addPositionSecondTeam(6, 400, 617); // Right center midfielder (reversed)
-    this.addPositionSecondTeam(7, 320, 617); // Center midfielder (reversed)
-    this.addPositionSecondTeam(8, 240, 617); // Left center midfielder (reversed)
-    this.addPositionSecondTeam(9, 160, 617); // Left midfielder (reversed)
+    this.addPosition(5, 480, 617, "second", "right-midfielder"); // Right midfielder (reversed)
+    this.addPosition(6, 400, 617, "second","central-midfielder"); // Right center midfielder (reversed)
+    this.addPosition(7, 320, 617, "second", "center-back"); // Center midfielder (reversed)
+    this.addPosition(8, 240, 617, "second", "central-midfielder"); // Left center midfielder (reversed)
+    this.addPosition(9, 160, 617, "second", "left-midfielder"); // Left midfielder (reversed)
 
     // Forwards (2 forwards)
-    this.addPositionSecondTeam(10, 400, 500); // Right forward (reversed)
-    this.addPositionSecondTeam(11, 240, 500); // Left forward (reversed)
+    this.addPosition(10, 400, 500, "second", "right-forward"); // Right forward (reversed)
+    this.addPosition(11, 240, 500, "second", "left-forward"); // Left forward (reversed)
   }
-
 }

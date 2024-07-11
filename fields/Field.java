@@ -1,9 +1,10 @@
 package fields;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import lib.Player;
+import lib.*;
 
 public interface Field {
   String name = "";
@@ -11,8 +12,7 @@ public interface Field {
   HashSet<Integer> playersOnBanch = new HashSet<Integer>();
   HashMap<Integer, Integer[]> positions = new HashMap<Integer, Integer[]>();
 
-  HashMap<Integer, Integer[]> getPositionsFirst();
-  HashMap<Integer, Integer[]> getPositionsSecond();
+  ArrayList<PositionCircle> getPositions();
 
   Boolean removePlayerFromGame(Player player);
 
@@ -22,8 +22,7 @@ public interface Field {
 
   String getName();
 
-  void addPositionFirstTeam(int positionNumber, int x, int y);
-  void addPositionSecondTeam(int positionNumber, int x, int y);
+  void addPosition(int positionNumber, int x, int y, String team, String role);
   String getResults();
 
 }

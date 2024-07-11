@@ -4,14 +4,15 @@ package lib;
 import java.awt.Point;
 
 public class Player {
-  public String name, surname, team;
+  public String name, surname, team = "", role;
   public int old, number;
   public double speed, strength, height, technik;
   public Point position, startPosition;
+  private double rate;
 
 
   public Player(String name, String surname, int old, int number, double speed, double strength,
-      double height, double technik, Point initialPosition) {
+      double height, double technik, Point initialPosition, String role) {
     this.name = name;
     this.surname = surname;
     this.old = old;
@@ -21,6 +22,8 @@ public class Player {
     this.height = height;
     this.technik = technik;
     this.setStartPosition(initialPosition);
+    this.role = role;
+    this.rate = (this.old + this.height + this.speed + this.strength + this.technik) / 5;
   }
 
   public String getName() {
@@ -36,7 +39,7 @@ public class Player {
   }
 
   public double getStats() {
-    return (this.old + this.height + this.speed + this.strength + this.technik) / 5;
+    return rate;
   }
   
   public void setStartPosition(Point startPosition) {
@@ -58,5 +61,9 @@ public class Player {
 
   public String getTeam() {
     return team;
+  }
+
+  public String getRole() {
+    return role;
   }
 }

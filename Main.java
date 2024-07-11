@@ -24,8 +24,8 @@ public class Main {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setLayout(new BorderLayout());
       BufferedImage backgroundImage = ImageIO.read(new File("./footballPitch2.jpg"));
-      CustomCanvas canvas = new CustomCanvas(backgroundImage, field, team);
-      JLabel label = new JLabel("Choose your teams");
+      JLabel label = new JLabel("Click on the position to select a player");
+      CustomCanvas canvas = new CustomCanvas(backgroundImage, field, team, label);
       JButton button = new JButton("Click Me");
       button.addActionListener(new ActionListener() {
         @Override
